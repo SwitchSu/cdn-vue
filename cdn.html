@@ -18,6 +18,15 @@
         <button type="button" @click="addCount()">增加(函式)</button>
         <hr>
         <input v-model="inputText" type="text">{{inputText}}
+        <div>{{power}}</div>
+        <button type="button" @click="power++">蓄力</button>
+        <button type="button" @click="power--">消氣</button>
+        <br>
+        <img v-if="power < 5" src="./img/p1.jpg" alt="">
+        <!-- <img v-else src="./img/p2.jpg" alt=""> -->
+        <img v-else-if="power < 10" src="./img/p2.jpg" alt="">
+        <img v-else src="./img/p3.jpg" alt="">
+        <img v-show="power >= 20" src="./img/p4.jpg" alt="">
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
@@ -30,6 +39,7 @@
                     object: {},
                     count: 0,
                     inputText:'',
+                    power: 0,
                 }
             },
             methods:{
