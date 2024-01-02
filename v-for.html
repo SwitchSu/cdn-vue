@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .card {
+            padding: 10px 15px;
+            border: 1px solid black;
+        }
+
+        .card-img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <div id="app">
+        <div class="container">
+            <div v-for="item in weather" class="card">
+                <div class="card-img">
+                    <img src="../cdn-vue/" :alt="item.name">
+                </div>
+                <div class="card-body">
+                    <p class="name">日期/天氣:{{item.name}}</p>
+                    <p class="tem">氣溫:{{item.tem}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const { createApp } = Vue;
+        createApp({
+            data() {
+                return {
+                    weather: [{
+                        id: 1,
+                        name: 'Winter',
+                        tem: -10,
+                        img: './img/winter.jpg',
+                    },
+                    {
+                        id: 2,
+                        name: 'Fall',
+                        tem: 10,
+                        img: './img/fall.jpg',
+                    },
+                    {
+                        id: 3,
+                        name: 'Spring',
+                        tem: 20,
+                        img: './img/spring.jpg',
+                    },
+                    {
+                        id: 4,
+                        name: 'Summer',
+                        tem: 30,
+                        img: './img/summer.jpg',
+                    }],
+                };
+            },
+            methods() {
+
+            },
+        }).mount('#app')
+    </script>
+</body>
+
+</html>
